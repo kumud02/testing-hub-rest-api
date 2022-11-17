@@ -581,7 +581,7 @@
 					]
 				},
 				{
-					"name": "Get Product List Copy",
+					"name": "Get Product List",
 					"event": [
 						{
 							"listen": "test",
@@ -638,6 +638,19 @@
 				},
 				{
 					"name": "Get Product Details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -656,106 +669,6 @@
 								"products",
 								"detail",
 								"samsung-galaxy-s22-ultra-1",
-								""
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "buyer",
-			"item": [
-				{
-					"name": "Get Item in Cart",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{baseurl}}/api/v1/buyer/list-items-in-cart/?page=1&page_size=10",
-							"protocol": "https",
-							"host": [
-								"{{baseurl}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"buyer",
-								"list-items-in-cart",
-								""
-							],
-							"query": [
-								{
-									"key": "page",
-									"value": "1"
-								},
-								{
-									"key": "page_size",
-									"value": "10"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Add item to cart",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"product\": 17,\n  \"quantity\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://{{baseurl}}/api/v1/buyer/add-item-to-cart/",
-							"protocol": "https",
-							"host": [
-								"{{baseurl}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"buyer",
-								"add-item-to-cart",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Item in Cart",
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"product\": 18,\n  \"quantity\": 0\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://{{baseurl}}/api/v1/buyer/remove-product-item/1/",
-							"protocol": "https",
-							"host": [
-								"{{baseurl}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"buyer",
-								"remove-product-item",
-								"1",
 								""
 							]
 						}
@@ -838,6 +751,19 @@
 				},
 				{
 					"name": "Get Product Category - Global Variable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -924,6 +850,19 @@
 				},
 				{
 					"name": "Passing Header - Content Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1005,44 +944,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Workflow Example - Get Product Category",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var i = 0",
-									"while(i<5){",
-									"    postman.setNextRequest(\"Get Product List\")",
-									"    console.log(\"this is iteration \"+ i)",
-									"    i++",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{baseurl}}/api/v1/products/category/",
-							"protocol": "https",
-							"host": [
-								"{{baseurl}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"products",
-								"category",
-								""
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -1050,7 +951,7 @@
 			"name": "Request Chaining - Product Details",
 			"item": [
 				{
-					"name": "Get Product Category",
+					"name": "GET Product Category",
 					"event": [
 						{
 							"listen": "test",
@@ -1060,7 +961,6 @@
 									"",
 									"// Get Category ID",
 									"var category_id = jsonResponse[0].id;",
-									"console.log(category_id)",
 									"",
 									"",
 									"// Set Category id ",
@@ -1073,7 +973,7 @@
 									"",
 									"",
 									"",
-									"postman.setNextRequest(\"Get Product List\")",
+									"postman.setNextRequest(\"GET Product List\")",
 									""
 								],
 								"type": "text/javascript"
@@ -1101,13 +1001,13 @@
 					"response": []
 				},
 				{
-					"name": "Get Product Details",
+					"name": "GET Product Details",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"postman.setNextRequest(null)"
+									"postman.setNextRequest(\"GET Token - Set token variable Copy\")"
 								],
 								"type": "text/javascript"
 							}
@@ -1138,7 +1038,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Product List",
+					"name": "GET Product List",
 					"event": [
 						{
 							"listen": "test",
@@ -1151,13 +1051,12 @@
 									"var jsonResponse = pm.response.json();",
 									"// Get Category ID",
 									"var slug = jsonResponse.results[0].slug;",
-									"console.log(slug)",
 									"",
 									"",
 									"// Set Category id ",
 									"pm.environment.set(\"slug\",slug) ",
 									"",
-									"postman.setNextRequest(\"Get Product Details\")",
+									"postman.setNextRequest(\"GET Product Details\")",
 									""
 								],
 								"type": "text/javascript"
@@ -1208,7 +1107,7 @@
 			"name": "Request Chaining - Cart Operation",
 			"item": [
 				{
-					"name": "Get Token - Set token variable Copy",
+					"name": "GET Token - Set token variable Copy",
 					"event": [
 						{
 							"listen": "test",
@@ -1236,7 +1135,7 @@
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"postman.setNextRequest(\"Get Item in Cart\")"
+									"postman.setNextRequest(\"GET Item in Cart\")"
 								],
 								"type": "text/javascript"
 							}
@@ -1279,7 +1178,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Item in Cart",
+					"name": "GET Item in Cart",
 					"event": [
 						{
 							"listen": "test",
@@ -1290,7 +1189,7 @@
 									"    pm.expect(jsonData.message).to.eql(\"Cart Is Empty.\");",
 									"});",
 									"",
-									"postman.setNextRequest(\"Get Product Category\")"
+									"postman.setNextRequest(\"Get Product Categories\")"
 								],
 								"type": "text/javascript"
 							}
@@ -1327,7 +1226,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Product Category",
+					"name": "Get Product Categories",
 					"event": [
 						{
 							"listen": "test",
@@ -1337,7 +1236,6 @@
 									"",
 									"// Get Category ID",
 									"var category_id = jsonResponse[0].id;",
-									"console.log(category_id)",
 									"",
 									"",
 									"// Set Category id ",
@@ -1348,9 +1246,11 @@
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
+									"console.log(\"Category ID should be\", category_id)",
 									"",
 									"",
-									"postman.setNextRequest(\"Get Product List\")",
+									"",
+									"postman.setNextRequest(\"Get Product Lists\")",
 									""
 								],
 								"type": "text/javascript"
@@ -1378,7 +1278,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Product List",
+					"name": "Get Product Lists",
 					"event": [
 						{
 							"listen": "test",
@@ -1391,13 +1291,13 @@
 									"var jsonResponse = pm.response.json();",
 									"// Get Category ID",
 									"var product_id = jsonResponse.results[0].id",
-									"console.log(product_id)",
 									"",
 									"",
 									"// Set Category id ",
 									"pm.environment.set(\"product_id\",product_id) ",
 									"",
 									"postman.setNextRequest(\"Add item to cart\")",
+									"console.log(\"product ID should be\", product_id)",
 									""
 								],
 								"type": "text/javascript"
@@ -1467,7 +1367,6 @@
 									"var jsonResponse = pm.response.json()",
 									"",
 									"var active_product_quantity_in_cart = jsonResponse.order_item.quantity;",
-									"console.log(active_product_quantity_in_cart)",
 									"var order_item_id  = jsonResponse.order_item.id",
 									"",
 									"pm.environment.set(\"active_product_quantity_in_cart\",0)",
@@ -1535,10 +1434,8 @@
 									"var responseData = pm.response.json();",
 									"",
 									"var update_quantity =pm.environment.get(\"update_quantity\")",
-									"console.log(\"Updated Quantity \", update_quantity)",
 									"",
 									"var active_product_quantity_in_cart = pm.environment.get(\"active_product_quantity_in_cart\")",
-									"console.log(\"active quantity: \", active_product_quantity_in_cart)",
 									"",
 									"var actualQuantity = responseData.order_item.quantity",
 									"var expectedQuantity = active_product_quantity_in_cart - update_quantity; ",
@@ -1652,7 +1549,7 @@
 									"    pm.expect(jsonData.message).to.eql(\"You do not have an active order\");",
 									"});",
 									"",
-									"postman.setNextRequest(null)"
+									"postman.setNextRequest(\"Update User Profile - PUT\")"
 								],
 								"type": "text/javascript"
 							}
@@ -1682,132 +1579,6 @@
 								"buyer",
 								"remove-product-item",
 								"{{order_item_id}}",
-								""
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "New Changes in API",
-			"item": [
-				{
-					"name": "Update User Profile - PUT",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"first_name\": \"\",\n  \"last_name\": \"\",\n  \"phone_number\": \"\",\n  \"city\": \"\",\n  \"state\": \"\",\n  \"country\": \"\",\n  \"zip_code\": \"3432\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://{{baseurl}}/api/v1/users/update-user-profile/",
-							"protocol": "https",
-							"host": [
-								"{{baseurl}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"update-user-profile",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Tags",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://test.api.testamplify.io/api/v1/users/tags",
-							"protocol": "https",
-							"host": [
-								"test",
-								"api",
-								"testamplify",
-								"io"
-							],
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"tags"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Tags",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 204\", function () {",
-									"    pm.response.to.have.status(204);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "https://test.api.testamplify.io/api/v1/users/tags/1/delete/",
-							"protocol": "https",
-							"host": [
-								"test",
-								"api",
-								"testamplify",
-								"io"
-							],
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"tags",
-								"1",
-								"delete",
 								""
 							]
 						}
