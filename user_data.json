@@ -1,0 +1,47 @@
+[
+  {
+    "first_name": "Kumud",
+    "last_name": "Kharel",
+    "phone_number": "2313123",
+    "city": "Biratnagar",
+    "state": "Province 1",
+    "country": "Nepal",
+    "zip_code": "46001"
+  },
+  {
+    "first_name": "Tony",
+    "last_name": "Makanju",
+    "phone_number": "2313123",
+    "city": "Texas",
+    "state": "Texas",
+    "country": "US",
+    "zip_code": "10001"
+  },
+  {
+    "first_name": "a3",
+    "last_name": "b3",
+    "phone_number": "c3",
+    "city": "d3",
+    "state": "e3",
+    "country": "f3",
+    "zip_code": "g3"
+  },
+  {
+    "first_name": "a4",
+    "last_name": "b4",
+    "phone_number": "2313123",
+    "city": "test",
+    "state": "test",
+    "country": "test",
+    "zip_code": "test"
+  },
+  {
+    "first_name": "a5",
+    "last_name": "b5",
+    "phone_number": "c5",
+    "city": "d5",
+    "state": "e5",
+    "country": "f5",
+    "zip_code": "g5"
+  }
+]
