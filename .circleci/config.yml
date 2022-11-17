@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - newman/newman-run:
-          collection: ./TestingHub-Cart-RestAPI.postman_collection.json
+          collection: ./TestingHub_Postman_Collection.json
           environment: ./environment.json
           globals: ./globals.json
           iteration-data: ./user_data.json
