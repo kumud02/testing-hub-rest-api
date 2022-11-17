@@ -10,9 +10,9 @@ jobs:
           collection: ./TestingHub-Cart-RestAPI.postman_collection.json
           environment: ./environment.json
           globals: ./globals.json
-          iteration-data: ./user_data.csv
+          iteration-data: ./user_data.json
           
 workflows:
-  test:
+  rest-api-test-newman:
     jobs:
       - newman-collection-run
