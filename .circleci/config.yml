@@ -10,7 +10,6 @@ jobs:
           collection: ./TestingHub-Cart-RestAPI.postman_collection.json
           environment: ./environment.json
           globals: ./globals.json
-          iteration-count: "4"
           iteration-data: ./user_data.json
           
 workflows:
