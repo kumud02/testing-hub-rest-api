@@ -596,6 +596,9 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -994,49 +997,6 @@
 							],
 							"path": [
 								"api",
-								"v1",
-								"users",
-								"update-user-profile",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update User Profile - Passing Request Body as a File",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"first_name\": \"{{first_name}}\",\n  \"last_name\": \"{{last_name}}\",\n  \"phone_number\": \"2313123\",\n  \"city\": \"test\",\n  \"state\": \"test\",\n  \"country\": \"test\",\n  \"zip_code\": \"test\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://{{baseurl}}api/v1/users/update-user-profile/",
-							"protocol": "https",
-							"host": [
-								"{{baseurl}}api"
-							],
-							"path": [
 								"v1",
 								"users",
 								"update-user-profile",
