@@ -10,7 +10,6 @@ jobs:
           collection: ./TestingHub_Postman_Collection.json
           environment: ./environment.json
           globals: ./globals.json
-          iteration-data: ./user_data.json
           
 workflows:
   rest-api-test-newman:
