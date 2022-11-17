@@ -1,0 +1,18 @@
+version: 2.1
+orbs:
+  newman: postman/newman@1.0.0
+jobs:
+  newman-collection-run:
+    executor: newman/postman-newman-docker
+    steps:
+      - checkout
+      - newman/newman-run:
+          collection: ./TestingHub-Cart-RestAPI.postman_collection.json
+          environment: ./environment.json
+          globals: ./globals.json
+          iteration-data: ./user_data.csv
+          
+workflows:
+  test:
+    jobs:
+      - newman-collection-run
