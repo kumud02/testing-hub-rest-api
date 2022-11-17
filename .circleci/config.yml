@@ -10,3 +10,9 @@ jobs:
           collection: ./TestingHub-Cart-RestAPI.postman_collection.json
           environment: ./environment.json
           globals: ./globals.json
+  
+workflows:
+  test:
+    jobs:
+      - newman-collection-run
+    
