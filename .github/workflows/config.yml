@@ -1,12 +1,17 @@
-- name: Checkout
-  uses: actions/checkout@v1
-
-- name: Run API Tests
-  id: run-newman
-  uses: anthonyvscode/newman-action@v1
-  with:
-    collection: collection.json
-    reporters: cli
-
-- name: Output summary to console
-  run: echo ${{ steps.run-newman.outputs.summary }}
+name: Newman Test Run
+on:
+  push:
+    branches:
+    - main
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+          collectionID: 6184296-dccb4f2f-0ea3-424b-a369-898a2433c07c
+          environmentID: 6184296-9c8cc169-5311-4df8-83ee-8a51858d519f
+      - run: npm install -g newman
+      - run: newman run "https://api.getpostman.com/collections/${{collectionID}}?apikey=${{ secrets.POSTMANAPIKEY }}" --environment "https://api.getpostman.com/environments/${{ environmentID }}?apikey=${{ secrets.POSTMANAPIKEY }}"
